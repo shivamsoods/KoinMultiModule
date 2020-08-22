@@ -1,0 +1,3 @@
+include ':inbox'
+include ':app'
+rootProject.name = "Koin POC"
