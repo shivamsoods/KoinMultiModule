@@ -6,6 +6,6 @@ import retrofit2.http.GET
 
 interface ApiService {
 
-    @GET("members")
-    suspend fun getTestMembers(): Response<TestModel>
+    @GET("posts")
+    suspend fun getTestMembers(): Response<List<TestModel>>
 }

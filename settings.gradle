@@ -1,3 +1,8 @@
+include ':testMod'
+include ':mylibrary'
+include ':myapplication'
+include ':testInbox'
+include ':app:inboxtest'
 include ':inbox'
 include ':app'
 rootProject.name = "Koin POC"

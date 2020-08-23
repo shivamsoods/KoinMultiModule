@@ -1,8 +1,6 @@
 package com.shivam.koinpoc
 
 import android.app.Application
-import com.shivam.koinpoc.di.appModule
-import com.shivam.koinpoc.di.networkModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -19,11 +17,10 @@ class KoinPOC : Application() {
         startKoin {
             androidLogger()
             androidContext(this@KoinPOC)
-            modules(
-                listOf(
-                    networkModule, appModule
-                )
-            )
+//            modules(
+//                listOf(inboxAppModule, inboxNetworkModule)
+//            )
         }
+
     }
 }

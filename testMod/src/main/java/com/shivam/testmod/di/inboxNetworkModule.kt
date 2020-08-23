@@ -1,13 +1,16 @@
-package com.shivam.koinpoc.di
+package com.shivam.testmod.di
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
-val networkModule = module {
-    single { provideRetrofit() }
+val inboxNetworkModule = module {
+    scope(named("InboxScope")) {
+        scoped(qualifier = named("InboxRetrofit")) { provideInboxRetrofit() }
+    }
 }
 
 /**
@@ -21,10 +24,8 @@ private val moshi = Moshi.Builder()
 /**
  * Provides a Retrofit Client to the application
  */
-private fun provideRetrofit() = Retrofit.Builder()
-    .baseUrl("https://my-json-server.typicode.com/typicode/demo/")
+fun provideInboxRetrofit(): Retrofit = Retrofit.Builder()
+    .baseUrl("https://someurl.com/api/")
     .addConverterFactory(MoshiConverterFactory.create(moshi))
     .build()
-
-
 
